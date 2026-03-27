@@ -1,9 +1,20 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Login from "@/components/Login";
+
 
 export default function Home() {
+
+
   return (
-    <div className={styles.page}>
+    <main id="hero">
+      <div className="hero-img">
+        <img alt="hero-img" src="hero-img.jpeg" />
+      </div>
+      <div className="hero-login">
+        <Login />
+      </div>
+    </main>
+  );
+}
       <main className={styles.main}>
         <Image
           className={styles.logo}
