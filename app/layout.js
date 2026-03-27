@@ -1,24 +1,22 @@
 import "./globals.css";
-import './fanta.css'
+import "./fanta.css";
 import Head from "./head";
 import AuthProvider from "@/context/AuthContext";
 
 export const metadata = {
   title: "Notely | Easy Breezy Notetaking",
-  description: "Build your archive of easily navigated and indexed notes with Notely",
+  description:
+    "Build your archive of easily navigated and indexed notes with Notely",
 };
 
 export default function RootLayout({ children }) {
-
-
   return (
     <html lang="en">
       <Head />
       <AuthProvider>
-        <body >
+        <body>
           <div id="app">{children}</div>
           <div id="portal"></div>
-
         </body>
       </AuthProvider>
     </html>
