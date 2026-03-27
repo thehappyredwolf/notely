@@ -298,3 +298,19 @@ article > div {
     grid-column: span 3;
   }
 }
+
+/* FOOTER */
+.footer-container {
+  margin-top: auto;
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid var(--color-link-transparent);
+  background: var(--background-primary);
+}
+
+.footer-container p {
+  width: 100%;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  opacity: 0.8;
+}
