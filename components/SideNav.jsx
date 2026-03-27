@@ -32,8 +32,6 @@ export default function SideNav(props) {
   }
 
   useEffect(() => {
-    // this is the code block that gets executed when our ref changes (so in this case it's when the ref is assigned)
-
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
         setShowNav(false);
@@ -42,7 +40,6 @@ export default function SideNav(props) {
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      // cleanup - unbind the event listener on clean up
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [ref]);
@@ -50,10 +47,9 @@ export default function SideNav(props) {
   useEffect(() => {
     if (!currentUser) {
       return;
-    } // because if we don't have a user then we can't fetch anything so exit this code block
+    }
 
     async function fetchIndexes() {
-      // this fetches the ids of all our docuemtns
       try {
         const notesRef = collection(db, "users", currentUser.uid, "notes");
         const snapshot = await getDocs(notesRef);

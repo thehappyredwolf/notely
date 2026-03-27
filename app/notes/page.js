@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 
 export default function NotesPage() {
   const [isViewer, setIsViewer] = useState(true);
-  // const [text, setText] = useState('')
   const [showNav, setShowNav] = useState(false);
   const [note, setNote] = useState({
     content: "",
@@ -24,7 +23,6 @@ export default function NotesPage() {
   const searchParams = useSearchParams();
 
   function handleToggleViewer() {
-    // isViewer = !isViewer
     setIsViewer(!isViewer);
   }
 
@@ -33,7 +31,6 @@ export default function NotesPage() {
   }
 
   function handleCreateNote() {
-    // create a new note
     setNote({
       content: "",
     });
@@ -42,7 +39,6 @@ export default function NotesPage() {
   }
 
   function handleEditNote(e) {
-    // edit an existing note
     setNote({ ...note, content: e.target.value });
   }
 
@@ -52,9 +48,7 @@ export default function NotesPage() {
     }
     setSavingNote(true);
     try {
-      // see if note already exists in database
       if (note.id) {
-        // then we have an existing note cause we have it's id, so write to existing note
         const noteRef = doc(db, "users", currentUser.uid, "notes", note.id);
         await setDoc(
           noteRef,
@@ -64,7 +58,6 @@ export default function NotesPage() {
           { merge: true },
         );
       } else {
-        // that means that it's a brand new note and will only contain the content field, so we can basically save a new note to firebase
         const newId =
           note.content.replaceAll("#", "").slice(0, 15) + "__" + Date.now();
         const notesRef = doc(db, "users", currentUser.uid, "notes", newId);
@@ -84,7 +77,6 @@ export default function NotesPage() {
   }
 
   useEffect(() => {
-    // locally cache notes in a global context (like the one we already have, you perhaps just need an extra state)
     const value = searchParams.get("id");
 
     if (!value || !currentUser) {
@@ -120,7 +112,6 @@ export default function NotesPage() {
   }
 
   if (!currentUser) {
-    // if no user found, then boot them to the home page cause this is the notes page (for auth users only)
     window.location.href = "/";
   }
 
