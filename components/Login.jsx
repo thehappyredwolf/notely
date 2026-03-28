@@ -43,7 +43,7 @@ export default function Login() {
   return (
     <>
       <div className="login-container">
-        <h1 className="text-gradient">Notely</h1>
+        <h1 className="text-gradient">Nota</h1>
         <h2>Organized note taking made easy</h2>
         <p>
           Build your very own archive of easily navigated and indexed
