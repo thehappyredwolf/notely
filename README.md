@@ -169,7 +169,6 @@ You need these Firebase credentials in `.env.local`:
 - [ ] Collaborative editing
 - [ ] Note tags and labels
 - [ ] Version history
-- [ ] Mobile app
 
 ## Performance
 
